@@ -1,6 +1,7 @@
 {
-  "name": "@riadh-adrani/postcss-plugin-ignore-file",
-  "version": "0.0.0",
+  "name": "postcss-plugin-ignore-file",
+  "private": false,
+  "version": "1.0.0",
   "description": "PostCSS plugin that ignore a file with a comment",
   "keywords": [
     "postcss",
