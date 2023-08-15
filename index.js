@@ -1,31 +1,23 @@
 /**
  * @type {import('postcss').PluginCreator}
  */
-module.exports = (opts = {}) => {
-  // Work with options here
-
+module.exports = () => {
   return {
-    postcssPlugin: 'postcss-plugin-ignore-file',
-    /*
-    Root (root, postcss) {
-      // Transform CSS AST here
-    }
-    */
+    postcssPlugin: "postcss-plugin-ignore-file",
 
-    /*
-    Declaration (decl, postcss) {
-      // The faster way to find Declaration node
-    }
-    */
+    Root(root) {
+      // if the first node is a comment containing @ignore we nullify the file
+      const first = root.nodes[0];
 
-    /*
-    Declaration: {
-      color: (decl, postcss) {
-        // The fastest way find Declaration node if you know property name
+      if (!first || first.type !== "comment") {
+        return;
       }
-    }
-    */
-  }
-}
 
-module.exports.postcss = true
+      if (first.text.trim() === "@ignore") {
+        root.nodes = [];
+      }
+    },
+  };
+};
+
+module.exports.postcss = true;
