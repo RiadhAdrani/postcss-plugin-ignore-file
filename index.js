@@ -15,6 +15,12 @@ module.exports = () => {
 
       if (first.text.trim() === "@ignore") {
         root.nodes = [];
+
+        if (root.source.input.file) {
+          console.log(
+            `[postcss-plugin-ignore-file] ignored file "${root.source.input.file}"`
+          );
+        }
       }
     },
   };

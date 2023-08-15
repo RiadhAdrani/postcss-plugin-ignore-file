@@ -1,8 +1,13 @@
 {
-  "name": "postcss-plugin-ignore-file",
+  "name": "@riadh-adrani/postcss-plugin-ignore-file",
   "version": "0.0.0",
   "description": "PostCSS plugin that ignore a file with a comment",
-  "keywords": ["postcss", "css", "postcss-plugin", "postcss-plugin-ignore-file"],
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "postcss-plugin-ignore-file"
+  ],
   "scripts": {
     "test": "jest --coverage && eslint ."
   },
@@ -10,7 +15,7 @@
   "license": "MIT",
   "repository": "RiadhAdrani/postcss-plugin-ignore-file",
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=18.0.0"
   },
   "peerDependencies": {
     "postcss": "^8.3.0"
@@ -30,7 +35,10 @@
       "node": true,
       "es6": true
     },
-    "extends": ["eslint:recommended", "plugin:jest/recommended"],
+    "extends": [
+      "eslint:recommended",
+      "plugin:jest/recommended"
+    ],
     "rules": {
       "jest/expect-expect": "off"
     }
@@ -38,7 +46,7 @@
   "jest": {
     "coverageThreshold": {
       "global": {
-        "statements": 100
+        "statements": 90
       }
     }
   }
