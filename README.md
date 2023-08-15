@@ -5,15 +5,15 @@
 [PostCSS]: https://github.com/postcss/postcss
 
 ```css
+/* @ignore */
+
 .foo {
   /* Input example */
 }
 ```
 
 ```css
-.foo {
-  /* Output example */
-}
+
 ```
 
 ## Usage
