@@ -5,20 +5,22 @@ module.exports = () => {
   return {
     postcssPlugin: "postcss-plugin-ignore-file",
 
-    Root(root) {
+    prepare(res) {
       // if the first node is a comment containing @ignore we nullify the file
-      const first = root.nodes[0];
+      const first = res.root.nodes[0];
 
       if (!first || first.type !== "comment") {
         return;
       }
 
       if (first.text.trim() === "@ignore") {
-        root.nodes = [];
+        res.root.nodes = [];
+        res.css = "";
+        res.content = "";
 
-        if (root.source.input.file) {
+        if (res.root.source.input.file) {
           console.log(
-            `[postcss-plugin-ignore-file] ignored file "${root.source.input.file}"`
+            `[postcss-plugin-ignore-file] ignored file "${res.root.source.input.file}"`
           );
         }
       }
